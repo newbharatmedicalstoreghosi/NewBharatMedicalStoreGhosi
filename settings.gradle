@@ -1,18 +1,46 @@
-pluginManagement {
-repositories {
-google()
-mavenCentral()
-gradlePluginPortal()
-}
+plugins {
+id 'com.android.application'
+id 'com.google.gms.google-services'
 }
 
-dependencyResolutionManagement {
-repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-repositories {
-google()
-mavenCentral()
-}
+android {
+namespace 'com.newbharat.medicalstore'
+compileSdk 35
+
+defaultConfig {
+    applicationId 'com.newbharat.medicalstore'
+    minSdk 23
+    targetSdk 35
+    versionCode 1
+    versionName '1.0.0'
 }
 
-rootProject.name = "NewBharatMedicalStore"
-include ':app'
+compileOptions {
+    sourceCompatibility JavaVersion.VERSION_17
+    targetCompatibility JavaVersion.VERSION_17
+}
+
+buildTypes {
+    debug {
+        debuggable true
+    }
+
+    release {
+        minifyEnabled false
+    }
+}
+
+}
+
+dependencies {
+implementation platform('com.google.firebase:firebase-bom:34.4.0')
+
+implementation 'com.google.firebase:firebase-auth'
+implementation 'com.google.firebase:firebase-firestore'
+implementation 'com.google.firebase:firebase-storage'
+
+implementation 'androidx.appcompat:appcompat:1.7.1'
+implementation 'com.google.android.material:material:1.13.0'
+implementation 'androidx.recyclerview:recyclerview:1.4.0'
+
+}
